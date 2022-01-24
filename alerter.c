@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <assert.h>
 
-#define SW_STUBBED_FOR_TEST
-#define SW_FOR_PRODUCTION
+#define SW_STUBBED_FOR_TEST 0
+#define SW_FOR_PRODUCTION 1
 
 #define SW SW_STUBBED_FOR_TEST
 
