@@ -1,24 +1,25 @@
 #include <stdio.h>
 #include <assert.h>
 
-enum MajorColor {WHITE, RED, BLACK, YELLOW, VIOLET};
-enum MinorColor {BLUE, ORANGE, GREEN, BROWN, SLATE};
+const char* MajorColorNames[] = {"White", "Red", "Black", "Yellow", "Violet"};
+const char* MinorColorNames[] = {"Blue", "Orange", "Green", "Brown", "Slate"};
+
+int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
+int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 
 typedef struct {
-    enum MajorColor majorColor;
-    enum MinorColor minorColor;
+    const char* majorColor;
+    const char* minorColor;
 } ColorPair;
 
 ColorPair GetColorFromPairNumber(int pairNumber) {
     ColorPair colorPair;
-    colorPair.majorColor = 
-        (enum MajorColor)(pairNumber / numberOfMinorColors);
-    colorPair.minorColor =
-        (enum MinorColor)(pairNumber % numberOfMinorColors);
+    colorPair.majorColor = MajorColorNames[(pairNumber / numberOfMinorColors)];
+    colorPair.minorColor = MinorColorNames[(pairNumber % numberOfMinorColors)];
     return colorPair;
 }
 
-void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorColor expectedMinor){
+void testNumberToPair(int pairNumber, const char* expectedMajor, const char* expectedMinor){
     ColorPair colorPair = GetColorFromPairNumber(pairNumber);
     assert(colorPair.majorColor == expectedMajor);
     assert(colorPair.minorColor == expectedMinor);
