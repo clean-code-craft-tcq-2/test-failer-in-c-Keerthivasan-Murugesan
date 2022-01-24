@@ -4,16 +4,15 @@
 int alertFailureCount = 0;
 
 int networkAlertStub(float celcius) {
-    if(celcius<200){
+    if(celcius<=200){
         // Return 200 for ok  
         return 200;
     }
     else{
         printf("ALERT: Temperature is %.1f celcius.\n", celcius);
-    // Return 500 for not-ok
-    return 500;
+        // Return 500 for not-ok
+        return 500;
     }
-       
 }
 
 void alertInCelcius(float farenheit) {
