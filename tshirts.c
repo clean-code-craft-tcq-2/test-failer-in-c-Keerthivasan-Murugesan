@@ -13,12 +13,17 @@ char size(int cms) {
     return sizeName;
 }
 
-int main() {
+void test_main(){
+    //assert the size function with different input values
     assert(size(37) == 'S');
     assert(size(38) == 'M');
     assert(size(40) == 'M');
     assert(size(42) == 'M');
     assert(size(43) == 'L');
+}
+
+int main() {
+    test_main();
     printf("All is well (maybe!)\n");
     return 0;
 }
