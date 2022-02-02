@@ -32,7 +32,6 @@ int printColorMap() {
     for(i = 0; i < 5; i++) {
         for(j = 0; j < 5; j++) {
             printf("%d | %s | %s\n", i * 5 + j, majorColor[i], minorColor[j]);
-            testNumberToPair( i * 5 + j, majorColor[i], minorColor[j]);
         }
     }
     return i * j;
@@ -41,6 +40,8 @@ int printColorMap() {
 int main() {
     int result = printColorMap();
     assert(result == 25);
+    testNumberToPair(3, "White", "Brown");
+    testNumberToPair(7, "Red", "Green");
     printf("All is well (maybe!)\n");
     return 0;
 }
